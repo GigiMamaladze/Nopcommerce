@@ -1,5 +1,7 @@
 package com.solvd.gui_components.utils;
 
+import com.solvd.gui_components.enums.Month;
+
 import java.util.Random;
 
 public class RandomUtil {
@@ -34,9 +36,8 @@ public class RandomUtil {
     }
 
     public String getRandomMonth() {
-        String[] months = {"January", "February", "March", "April", "May", "June",
-                "July", "August", "September", "October", "November", "December"};
-        return months[random.nextInt(months.length)];
+        Month[] months = Month.values();
+        return months[random.nextInt(months.length)].getMonth();
     }
 
     public int getRandomYear() {

@@ -1,16 +1,15 @@
 package com.solvd.gui.pages.common;
 
-import com.solvd.gui.components.navigation.NavigationBase;
-import com.zebrunner.carina.webdriver.gui.AbstractPage;
+import com.solvd.gui.components.navigation.NavigationBarBase;
 import org.openqa.selenium.WebDriver;
 
-public abstract class RegisterPageBase extends AbstractPage {
+public abstract class RegisterPageBase extends AbstractNopcommercePage {
 
     public RegisterPageBase(WebDriver driver) {
         super(driver);
     }
 
-    public abstract NavigationBase getNavigation();
+    public abstract NavigationBarBase getNavigation();
 
     public abstract void typeFirstName(String firstName);
 
@@ -30,5 +29,5 @@ public abstract class RegisterPageBase extends AbstractPage {
 
     public abstract void clickRegisterBtn();
 
-    public abstract boolean isSuccessfullyMessagePreset();
+    public abstract boolean isSuccessfullyRegisterNotificationPreset();
 }

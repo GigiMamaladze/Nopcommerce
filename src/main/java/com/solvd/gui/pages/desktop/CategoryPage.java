@@ -17,10 +17,10 @@ public class CategoryPage extends CategoryPageBase {
     private ExtendedWebElement pageTitle;
 
     @FindBy(xpath = "//*[@class = 'sub-category-item']//*[contains(text(), '%s')]")
-    private ExtendedWebElement subCategoryLabel;
+    private ExtendedWebElement subCategoryLink;
 
     @FindBy(xpath = "//*[@class = 'product-item']//*[text() = '%s']")
-    private ExtendedWebElement productLabel;
+    private ExtendedWebElement productLink;
 
     public CategoryPage(WebDriver driver) {
         super(driver);
@@ -28,7 +28,7 @@ public class CategoryPage extends CategoryPageBase {
 
     @Override
     public CategoryPageBase clickSubcategory(SubCategory subCategory) {
-        subCategoryLabel.format(subCategory.getSubCategory()).click();
+        subCategoryLink.format(subCategory.getSubCategory()).click();
         return initPage(CategoryPageBase.class, getDriver());
     }
 
@@ -39,13 +39,13 @@ public class CategoryPage extends CategoryPageBase {
 
     @Override
     public ProductPageBase clickProduct(String product) {
-        productLabel.format(product).click();
+        productLink.format(product).click();
         return initPage(ProductPageBase.class, getDriver());
     }
 
     @Override
-    public BuildYourOwnComputerPageBase clickBuildYourOwnComputerLabel() {
-        productLabel.format("Build your own computer").click();
+    public BuildYourOwnComputerPageBase clickBuildYourOwnComputerLink() {
+        productLink.format("Build your own computer").click();
         return initPage(BuildYourOwnComputerPageBase.class, getDriver());
     }
 }

@@ -1,9 +1,8 @@
 package com.solvd.gui.pages.common;
 
-import com.zebrunner.carina.webdriver.gui.AbstractPage;
 import org.openqa.selenium.WebDriver;
 
-public abstract class SearchResultsPageBase extends AbstractPage {
+public abstract class SearchResultsPageBase extends AbstractNopcommercePage {
 
     public SearchResultsPageBase(WebDriver driver) {
         super(driver);

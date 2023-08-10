@@ -8,16 +8,19 @@ import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
-public class Navigation extends NavigationBase {
+public class NavigationBar extends NavigationBarBase {
 
     @FindBy(css = ".header-logo")
     private ExtendedWebElement headerLogo;
 
+    @FindBy(css = ".ico-account")
+    private ExtendedWebElement myAccountLink;
+
     @FindBy(css = ".ico-register")
-    private ExtendedWebElement registerLabel;
+    private ExtendedWebElement registerLink;
 
     @FindBy(css = ".ico-login")
-    private ExtendedWebElement loginLabel;
+    private ExtendedWebElement loginLink;
 
     @FindBy(xpath = "//*[@class = 'header']//*[@id = 'small-searchterms']")
     private ExtendedWebElement searchTextField;
@@ -26,21 +29,21 @@ public class Navigation extends NavigationBase {
     private ExtendedWebElement searchButton;
 
     @FindBy(xpath = "//*[@class = 'top-menu notmobile']//*[contains(text(), '%s')]")
-    private ExtendedWebElement categoryLabel;
+    private ExtendedWebElement categoryLink;
 
-    public Navigation(WebDriver driver, SearchContext searchContext) {
+    public NavigationBar(WebDriver driver, SearchContext searchContext) {
         super(driver, searchContext);
     }
 
     @Override
-    public RegisterPageBase clickRegisterLabel() {
-        registerLabel.click();
+    public RegisterPageBase clickRegisterLink() {
+        registerLink.click();
         return new RegisterPage(getDriver());
     }
 
     @Override
-    public LoginPageBase clickLoginLabel() {
-        loginLabel.click();
+    public LoginPageBase clickLoginLink() {
+        loginLink.click();
         return new LoginPage(getDriver());
     }
 
@@ -53,7 +56,7 @@ public class Navigation extends NavigationBase {
 
     @Override
     public CategoryPageBase clickCategory(Category category) {
-        categoryLabel.format(category.getCategory()).click();
+        categoryLink.format(category.getCategory()).click();
         return new CategoryPage(getDriver());
     }
 
@@ -61,5 +64,10 @@ public class Navigation extends NavigationBase {
     public HomePageBase clickHeaderLogo() {
         headerLogo.click();
         return new HomePage(getDriver());
+    }
+
+    @Override
+    public boolean isUserLoggedIn() {
+        return myAccountLink.isElementPresent();
     }
 }

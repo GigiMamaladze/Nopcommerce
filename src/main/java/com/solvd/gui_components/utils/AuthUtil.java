@@ -11,7 +11,7 @@ public class AuthUtil implements IAbstractTest {
         HomePageBase homePage = initPage(getDriver(), HomePageBase.class);
         homePage.open();
         Assert.assertTrue(homePage.isPageOpened(), "Nopcommerce home page is not opened");
-        RegisterPageBase registerPage = homePage.getNavigation().clickRegisterLabel();
+        RegisterPageBase registerPage = homePage.getNavigation().clickRegisterLink();
         Assert.assertTrue(registerPage.isPageOpened(), "Register page is not opened");
         registerPage.typeFirstName(firstName);
         registerPage.typeLastName(lastName);
@@ -19,7 +19,7 @@ public class AuthUtil implements IAbstractTest {
         registerPage.typePassword(password);
         registerPage.typeConfirmPassword(password);
         registerPage.clickRegisterBtn();
-        Assert.assertTrue(registerPage.isSuccessfullyMessagePreset(), "Register is not completed");
+        Assert.assertTrue(registerPage.isSuccessfullyRegisterNotificationPreset(), "Register is not completed");
         homePage = registerPage.getNavigation().clickHeaderLogo();
         return homePage;
     }

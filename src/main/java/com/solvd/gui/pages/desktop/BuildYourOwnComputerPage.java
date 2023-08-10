@@ -1,8 +1,9 @@
 package com.solvd.gui.pages.desktop;
 
 import com.solvd.gui.pages.common.BuildYourOwnComputerPageBase;
-import com.solvd.gui.pages.common.ShoppingCartPageBase;
-import com.solvd.gui_components.enums.ComputerSpec;
+import com.solvd.gui_components.enums.computerspec.Hdd;
+import com.solvd.gui_components.enums.computerspec.Processor;
+import com.solvd.gui_components.enums.computerspec.Ram;
 import com.zebrunner.carina.utils.factory.DeviceType;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 import com.zebrunner.carina.webdriver.decorator.PageOpeningStrategy;
@@ -27,12 +28,6 @@ public class BuildYourOwnComputerPage extends BuildYourOwnComputerPageBase {
     @FindBy(xpath = "//button[text() = 'Add to cart']")
     private ExtendedWebElement addToCartButton;
 
-    @FindBy(xpath = "//*[@id = 'bar-notification']//*[text() = 'The product has been added to your ']")
-    private ExtendedWebElement successfullyNotification;
-
-    @FindBy(xpath = "//*[@class = 'bar-notification success']//a[text() = 'shopping cart']")
-    private ExtendedWebElement shoppingCartLink;
-
     public BuildYourOwnComputerPage(WebDriver driver) {
         super(driver);
         setPageOpeningStrategy(PageOpeningStrategy.BY_ELEMENT);
@@ -40,33 +35,22 @@ public class BuildYourOwnComputerPage extends BuildYourOwnComputerPageBase {
     }
 
     @Override
-    public void selectProcessor(ComputerSpec computerSpec) {
-        processorSelectBox.select(computerSpec.getSpec());
+    public void selectProcessor(Processor processor) {
+        processorSelectBox.select(processor.getProcessor());
     }
 
     @Override
-    public void selectRam(ComputerSpec computerSpec) {
-        ramSelectBox.select(computerSpec.getSpec());
+    public void selectRam(Ram ram) {
+        ramSelectBox.select(ram.getRam());
     }
 
     @Override
-    public void selectHDD(ComputerSpec computerSpec) {
-        hddItem.format(computerSpec.getSpec()).click();
+    public void selectHDD(Hdd hdd) {
+        hddItem.format(hdd.getHdd()).click();
     }
 
     @Override
     public void clickAddToCart() {
         addToCartButton.click();
-    }
-
-    @Override
-    public boolean isSuccessfullyNotificationAppeared() {
-        return successfullyNotification.isElementPresent();
-    }
-
-    @Override
-    public ShoppingCartPageBase clickShoppingCartLink() {
-        shoppingCartLink.click();
-        return initPage(ShoppingCartPageBase.class, getDriver());
     }
 }

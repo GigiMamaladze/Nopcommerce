@@ -1,7 +1,6 @@
 package com.solvd.gui.pages.desktop;
 
 import com.solvd.gui.pages.common.ProductPageBase;
-import com.solvd.gui.pages.common.ShoppingCartPageBase;
 import com.zebrunner.carina.utils.factory.DeviceType;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 import org.openqa.selenium.WebDriver;
@@ -35,16 +34,5 @@ public class ProductPage extends ProductPageBase {
     @Override
     public void clickAddToCart() {
         addToCartButton.click();
-    }
-
-    @Override
-    public boolean isSuccessfullyNotificationAppeared() {
-        return successfullyMessage.isElementPresent();
-    }
-
-    @Override
-    public ShoppingCartPageBase clickShoppingCartLink() {
-        shoppingCartLink.click();
-        return initPage(ShoppingCartPageBase.class, getDriver());
     }
 }

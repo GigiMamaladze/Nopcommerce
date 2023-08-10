@@ -1,10 +1,9 @@
 package com.solvd.gui.pages.common;
 
 import com.solvd.gui_components.enums.SubCategory;
-import com.zebrunner.carina.webdriver.gui.AbstractPage;
 import org.openqa.selenium.WebDriver;
 
-public abstract class CategoryPageBase extends AbstractPage {
+public abstract class CategoryPageBase extends AbstractNopcommercePage {
 
     public CategoryPageBase(WebDriver driver) {
         super(driver);
@@ -16,5 +15,5 @@ public abstract class CategoryPageBase extends AbstractPage {
 
     public abstract ProductPageBase clickProduct(String product);
 
-    public abstract BuildYourOwnComputerPageBase clickBuildYourOwnComputerLabel();
+    public abstract BuildYourOwnComputerPageBase clickBuildYourOwnComputerLink();
 }

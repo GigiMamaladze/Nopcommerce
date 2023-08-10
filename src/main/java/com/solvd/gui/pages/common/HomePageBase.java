@@ -1,16 +1,13 @@
 package com.solvd.gui.pages.common;
 
-import com.solvd.gui.components.navigation.NavigationBase;
-import com.zebrunner.carina.webdriver.gui.AbstractPage;
+import com.solvd.gui.components.navigation.NavigationBarBase;
 import org.openqa.selenium.WebDriver;
 
-public abstract class HomePageBase extends AbstractPage {
+public abstract class HomePageBase extends AbstractNopcommercePage {
 
     public HomePageBase(WebDriver driver) {
         super(driver);
     }
 
-    public abstract NavigationBase getNavigation();
-
-    public abstract boolean isUserLoggedIn();
+    public abstract NavigationBarBase getNavigation();
 }

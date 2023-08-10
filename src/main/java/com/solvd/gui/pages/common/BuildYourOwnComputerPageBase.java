@@ -1,24 +1,21 @@
 package com.solvd.gui.pages.common;
 
-import com.solvd.gui_components.enums.ComputerSpec;
-import com.zebrunner.carina.webdriver.gui.AbstractPage;
+import com.solvd.gui_components.enums.computerspec.Hdd;
+import com.solvd.gui_components.enums.computerspec.Processor;
+import com.solvd.gui_components.enums.computerspec.Ram;
 import org.openqa.selenium.WebDriver;
 
-public abstract class BuildYourOwnComputerPageBase extends AbstractPage {
+public abstract class BuildYourOwnComputerPageBase extends AbstractNopcommercePage {
 
     public BuildYourOwnComputerPageBase(WebDriver driver) {
         super(driver);
     }
 
-    public abstract void selectProcessor(ComputerSpec computerSpec);
+    public abstract void selectProcessor(Processor processor);
 
-    public abstract void selectRam(ComputerSpec computerSpec);
+    public abstract void selectRam(Ram ram);
 
-    public abstract void selectHDD(ComputerSpec computerSpec);
+    public abstract void selectHDD(Hdd hdd);
 
     public abstract void clickAddToCart();
-
-    public abstract boolean isSuccessfullyNotificationAppeared();
-
-    public abstract ShoppingCartPageBase clickShoppingCartLink();
 }

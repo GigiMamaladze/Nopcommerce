@@ -6,19 +6,21 @@ import com.zebrunner.carina.webdriver.gui.AbstractUIObject;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 
-public abstract class NavigationBase extends AbstractUIObject {
+public abstract class NavigationBarBase extends AbstractUIObject {
 
-    public NavigationBase(WebDriver driver, SearchContext searchContext) {
+    public NavigationBarBase(WebDriver driver, SearchContext searchContext) {
         super(driver, searchContext);
     }
 
-    public abstract RegisterPageBase clickRegisterLabel();
+    public abstract RegisterPageBase clickRegisterLink();
 
-    public abstract LoginPageBase clickLoginLabel();
+    public abstract LoginPageBase clickLoginLink();
 
     public abstract SearchResultsPageBase search(String productName);
 
     public abstract CategoryPageBase clickCategory(Category category);
 
     public abstract HomePageBase clickHeaderLogo();
+
+    public abstract boolean isUserLoggedIn();
 }

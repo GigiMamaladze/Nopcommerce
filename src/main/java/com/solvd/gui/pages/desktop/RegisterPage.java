@@ -1,7 +1,7 @@
 package com.solvd.gui.pages.desktop;
 
-import com.solvd.gui.components.navigation.Navigation;
-import com.solvd.gui.components.navigation.NavigationBase;
+import com.solvd.gui.components.navigation.NavigationBar;
+import com.solvd.gui.components.navigation.NavigationBarBase;
 import com.solvd.gui.pages.common.RegisterPageBase;
 import com.zebrunner.carina.utils.factory.DeviceType;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
@@ -13,7 +13,7 @@ import org.openqa.selenium.support.FindBy;
 public class RegisterPage extends RegisterPageBase {
 
     @FindBy(css = ".master-wrapper-page")
-    private Navigation navigation;
+    private NavigationBar navigation;
 
     @FindBy(xpath = "//*[@class = 'page-title']/h1[text() = 'Register']")
     private ExtendedWebElement registerPageTitle;
@@ -46,7 +46,7 @@ public class RegisterPage extends RegisterPageBase {
     private ExtendedWebElement registerButton;
 
     @FindBy(xpath = "//*[@class = 'result'][text() = 'Your registration completed']")
-    private ExtendedWebElement successfullyMessage;
+    private ExtendedWebElement successfullyRegisterNotification;
 
     public RegisterPage(WebDriver driver) {
         super(driver);
@@ -55,7 +55,7 @@ public class RegisterPage extends RegisterPageBase {
     }
 
     @Override
-    public NavigationBase getNavigation() {
+    public NavigationBarBase getNavigation() {
         return navigation;
     }
 
@@ -105,7 +105,7 @@ public class RegisterPage extends RegisterPageBase {
     }
 
     @Override
-    public boolean isSuccessfullyMessagePreset() {
-        return successfullyMessage.isElementPresent();
+    public boolean isSuccessfullyRegisterNotificationPreset() {
+        return successfullyRegisterNotification.isElementPresent();
     }
 }

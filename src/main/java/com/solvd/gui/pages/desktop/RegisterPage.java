@@ -1,5 +1,7 @@
 package com.solvd.gui.pages.desktop;
 
+import com.solvd.gui.components.navigation.Navigation;
+import com.solvd.gui.components.navigation.NavigationBase;
 import com.solvd.gui.pages.common.RegisterPageBase;
 import com.zebrunner.carina.utils.factory.DeviceType;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
@@ -9,6 +11,9 @@ import org.openqa.selenium.support.FindBy;
 
 @DeviceType(pageType = DeviceType.Type.DESKTOP, parentClass = RegisterPageBase.class)
 public class RegisterPage extends RegisterPageBase {
+
+    @FindBy(css = ".master-wrapper-page")
+    private Navigation navigation;
 
     @FindBy(xpath = "//*[@class = 'page-title']/h1[text() = 'Register']")
     private ExtendedWebElement registerPageTitle;
@@ -47,6 +52,11 @@ public class RegisterPage extends RegisterPageBase {
         super(driver);
         setPageOpeningStrategy(PageOpeningStrategy.BY_ELEMENT);
         setUiLoadedMarker(registerPageTitle);
+    }
+
+    @Override
+    public NavigationBase getNavigation() {
+        return navigation;
     }
 
     @Override

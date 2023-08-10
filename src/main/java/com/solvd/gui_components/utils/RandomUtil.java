@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class RandomUtil {
 
-    private Random random = new Random();
+    private final Random random = new Random();
 
     public String getRandomString(int length) {
         final String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";

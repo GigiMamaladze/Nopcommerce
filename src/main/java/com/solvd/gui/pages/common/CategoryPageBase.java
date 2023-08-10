@@ -14,6 +14,4 @@ public abstract class CategoryPageBase extends AbstractNopcommercePage {
     public abstract boolean isPageOpened(String pageTitle);
 
     public abstract ProductPageBase clickProduct(String product);
-
-    public abstract BuildYourOwnComputerPageBase clickBuildYourOwnComputerLink();
 }

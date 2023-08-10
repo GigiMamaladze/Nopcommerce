@@ -71,8 +71,9 @@ public class NopcommerceTest extends AbstractNopcommerceTest {
         Assert.assertTrue(computersCategoryPage.isPageOpened("Computers"), "Computer category page is not opened");
         CategoryPageBase desktopsCategoryPage = computersCategoryPage.clickSubcategory(SubCategory.DESKTOP);
         Assert.assertTrue(desktopsCategoryPage.isPageOpened("Desktops"), "Desktops category page is not opened");
-        BuildYourOwnComputerPageBase buildYourOwnComputerPage = desktopsCategoryPage.clickBuildYourOwnComputerLink();
-        Assert.assertTrue(buildYourOwnComputerPage.isPageOpened(), "Build your own computer page is not opened");
+        String product = "Build your own computer";
+        ProductPageBase buildYourOwnComputerPage = desktopsCategoryPage.clickProduct(product);
+        Assert.assertTrue(buildYourOwnComputerPage.isProductPageOpened(product), "Build your own computer page is not opened");
         buildYourOwnComputerPage.selectProcessor(Processor.PROCESSOR_INTEL_PENTIUM_DUAL_CORE_2_2_GHZ);
         buildYourOwnComputerPage.selectRam(Ram.RAM_2GB);
         buildYourOwnComputerPage.selectHDD(Hdd.HDD_320GB);
@@ -80,7 +81,7 @@ public class NopcommerceTest extends AbstractNopcommerceTest {
         Assert.assertTrue(buildYourOwnComputerPage.isSuccessfullyAddToTheCartNotificationAppeared(), "Successfully Notification is not Appeared");
         ShoppingCartPageBase shoppingCartPage = buildYourOwnComputerPage.clickShoppingCartLink();
         Assert.assertTrue(shoppingCartPage.isPageOpened(), "Shopping cart page is not opened");
-        Assert.assertTrue(shoppingCartPage.isProductPresent("Build your own computer"), "Product is not present in cart");
+        Assert.assertTrue(shoppingCartPage.isProductPresent(product), "Product is not present in cart");
     }
 
     @Test

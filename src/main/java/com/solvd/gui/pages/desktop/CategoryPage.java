@@ -1,6 +1,5 @@
 package com.solvd.gui.pages.desktop;
 
-import com.solvd.gui.pages.common.BuildYourOwnComputerPageBase;
 import com.solvd.gui.pages.common.CategoryPageBase;
 import com.solvd.gui.pages.common.ProductPageBase;
 import com.solvd.gui_components.enums.SubCategory;
@@ -41,11 +40,5 @@ public class CategoryPage extends CategoryPageBase {
     public ProductPageBase clickProduct(String product) {
         productLink.format(product).click();
         return initPage(ProductPageBase.class, getDriver());
-    }
-
-    @Override
-    public BuildYourOwnComputerPageBase clickBuildYourOwnComputerLink() {
-        productLink.format("Build your own computer").click();
-        return initPage(BuildYourOwnComputerPageBase.class, getDriver());
     }
 }

@@ -19,5 +19,5 @@ public abstract class ProductPageBase extends AbstractNopcommercePage {
 
     public abstract void selectHDD(Hdd hdd);
 
-    public abstract void clickAddToCart();
+    public abstract void clickAddToCartButton();
 }

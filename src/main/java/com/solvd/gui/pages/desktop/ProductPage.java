@@ -58,7 +58,7 @@ public class ProductPage extends ProductPageBase {
     }
 
     @Override
-    public void clickAddToCart() {
+    public void clickAddToCartButton() {
         addToCartButton.click();
     }
 }

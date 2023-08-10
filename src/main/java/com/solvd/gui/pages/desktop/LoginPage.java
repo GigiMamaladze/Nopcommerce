@@ -40,7 +40,7 @@ public class LoginPage extends LoginPageBase {
     }
 
     @Override
-    public HomePageBase clickLoginBtn() {
+    public HomePageBase clickLoginButton() {
         loginButton.click();
         return initPage(HomePageBase.class, getDriver());
     }

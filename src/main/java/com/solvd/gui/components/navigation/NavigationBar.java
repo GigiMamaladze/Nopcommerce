@@ -67,7 +67,7 @@ public class NavigationBar extends NavigationBarBase {
     }
 
     @Override
-    public boolean isUserLoggedIn() {
+    public boolean isMyAccountLinkPresent() {
         return myAccountLink.isElementPresent();
     }
 }

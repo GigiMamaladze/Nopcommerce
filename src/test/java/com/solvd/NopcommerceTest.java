@@ -46,8 +46,8 @@ public class NopcommerceTest extends AbstractNopcommerceTest {
         Assert.assertTrue(loginPage.isPageOpened(), "Log in page is not opened");
         loginPage.typeEmail(email);
         loginPage.typePassword(password);
-        homePage = loginPage.clickLoginBtn();
-        Assert.assertTrue(homePage.getNavigation().isUserLoggedIn(), "User is not logged in");
+        homePage = loginPage.clickLoginButton();
+        Assert.assertTrue(homePage.getNavigation().isMyAccountLinkPresent(), "User is not logged in");
     }
 
     @Test
@@ -77,7 +77,7 @@ public class NopcommerceTest extends AbstractNopcommerceTest {
         buildYourOwnComputerPage.selectProcessor(Processor.PROCESSOR_INTEL_PENTIUM_DUAL_CORE_2_2_GHZ);
         buildYourOwnComputerPage.selectRam(Ram.RAM_2GB);
         buildYourOwnComputerPage.selectHDD(Hdd.HDD_320GB);
-        buildYourOwnComputerPage.clickAddToCart();
+        buildYourOwnComputerPage.clickAddToCartButton();
         Assert.assertTrue(buildYourOwnComputerPage.isSuccessfullyAddToTheCartNotificationAppeared(), "Successfully Notification is not Appeared");
         ShoppingCartPageBase shoppingCartPage = buildYourOwnComputerPage.clickShoppingCartLink();
         Assert.assertTrue(shoppingCartPage.isPageOpened(), "Shopping cart page is not opened");
@@ -97,7 +97,7 @@ public class NopcommerceTest extends AbstractNopcommerceTest {
         String product = "Digital Storm VANQUISH 3 Custom Performance PC";
         ProductPageBase productPage = desktopsCategoryPage.clickProduct(product);
         Assert.assertTrue(productPage.isProductPageOpened(product), "Product page is not opened");
-        productPage.clickAddToCart();
+        productPage.clickAddToCartButton();
         Assert.assertTrue(productPage.isSuccessfullyAddToTheCartNotificationAppeared(), "Successfully Notification is not Appeared");
         ShoppingCartPageBase shoppingCartPage = productPage.clickShoppingCartLink();
         Assert.assertTrue(shoppingCartPage.isPageOpened(), "Shopping cart page is not opened");

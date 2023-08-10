@@ -22,5 +22,5 @@ public abstract class NavigationBarBase extends AbstractUIObject {
 
     public abstract HomePageBase clickHeaderLogo();
 
-    public abstract boolean isUserLoggedIn();
+    public abstract boolean isMyAccountLinkPresent();
 }

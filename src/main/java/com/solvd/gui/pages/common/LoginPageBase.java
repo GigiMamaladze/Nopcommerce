@@ -12,5 +12,5 @@ public abstract class LoginPageBase extends AbstractNopcommercePage {
 
     public abstract void typePassword(String password);
 
-    public abstract HomePageBase clickLoginBtn();
+    public abstract HomePageBase clickLoginButton();
 }

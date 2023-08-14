@@ -11,7 +11,7 @@ public class AuthUtil implements IAbstractTest {
         HomePageBase homePage = initPage(getDriver(), HomePageBase.class);
         homePage.open();
         Assert.assertTrue(homePage.isPageOpened(), "Nopcommerce home page is not opened");
-        RegisterPageBase registerPage = homePage.getNavigation().clickRegisterLink();
+        RegisterPageBase registerPage = homePage.getNavigationBar().clickRegisterLink();
         Assert.assertTrue(registerPage.isPageOpened(), "Register page is not opened");
         registerPage.typeFirstName(firstName);
         registerPage.typeLastName(lastName);

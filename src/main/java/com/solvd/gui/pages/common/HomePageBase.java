@@ -9,5 +9,5 @@ public abstract class HomePageBase extends AbstractNopcommercePage {
         super(driver);
     }
 
-    public abstract NavigationBarBase getNavigation();
+    public abstract NavigationBarBase getNavigationBar();
 }

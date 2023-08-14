@@ -1,17 +1,17 @@
-package com.solvd.gui.pages.desktop;
+package com.solvd.gui.pages.android;
 
-import com.solvd.gui.components.navigation.NavigationBar;
+import com.solvd.gui.components.navigation.MobileNavigationBar;
 import com.solvd.gui.components.navigation.NavigationBarBase;
 import com.solvd.gui.pages.common.HomePageBase;
 import com.zebrunner.carina.utils.factory.DeviceType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
-@DeviceType(pageType = DeviceType.Type.DESKTOP, parentClass = HomePageBase.class)
+@DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = HomePageBase.class)
 public class HomePage extends HomePageBase {
 
     @FindBy(css = ".master-wrapper-page")
-    private NavigationBar navigationBar;
+    private MobileNavigationBar navigationBar;
 
     public HomePage(WebDriver driver) {
         super(driver);

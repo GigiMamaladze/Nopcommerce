@@ -18,7 +18,7 @@ public class NopcommerceTest extends AbstractNopcommerceTest {
         HomePageBase homePage = initPage(getDriver(), HomePageBase.class);
         homePage.open();
         Assert.assertTrue(homePage.isPageOpened(), "Nopcommerce home page is not opened");
-        RegisterPageBase registerPage = homePage.getNavigation().clickRegisterLink();
+        RegisterPageBase registerPage = homePage.getNavigationBar().clickRegisterLink();
         Assert.assertTrue(registerPage.isPageOpened(), "Register page is not opened");
         registerPage.typeFirstName(randomUtil.getRandomString(8));
         registerPage.typeLastName(randomUtil.getRandomString(8));
@@ -42,12 +42,12 @@ public class NopcommerceTest extends AbstractNopcommerceTest {
         String password = randomUtil.getRandomString(8);
         HomePageBase homePage = authUtil.register(firstName, lastName, email, password);
         Assert.assertTrue(homePage.isPageOpened(), "Nopcommerce home page is not opened");
-        LoginPageBase loginPage = homePage.getNavigation().clickLoginLink();
+        LoginPageBase loginPage = homePage.getNavigationBar().clickLoginLink();
         Assert.assertTrue(loginPage.isPageOpened(), "Log in page is not opened");
         loginPage.typeEmail(email);
         loginPage.typePassword(password);
         homePage = loginPage.clickLoginButton();
-        Assert.assertTrue(homePage.getNavigation().isMyAccountLinkPresent(), "User is not logged in");
+        Assert.assertTrue(homePage.getNavigationBar().isMyAccountLinkPresent(), "User is not logged in");
     }
 
     @Test
@@ -57,7 +57,7 @@ public class NopcommerceTest extends AbstractNopcommerceTest {
         homePage.open();
         Assert.assertTrue(homePage.isPageOpened(), "Nopcommerce home page is not opened");
         String productName = "Digital Storm VANQUISH 3 Custom Performance PC";
-        SearchResultsPageBase searchResultsPage = homePage.getNavigation().search(productName);
+        SearchResultsPageBase searchResultsPage = homePage.getNavigationBar().search(productName);
         Assert.assertTrue(searchResultsPage.isProductPresent(productName), "Product is not present on page");
     }
 
@@ -67,7 +67,7 @@ public class NopcommerceTest extends AbstractNopcommerceTest {
         HomePageBase homePage = initPage(getDriver(), HomePageBase.class);
         homePage.open();
         Assert.assertTrue(homePage.isPageOpened(), "Nopcommerce home page is not opened");
-        CategoryPageBase computersCategoryPage = homePage.getNavigation().clickCategory(Category.COMPUTERS);
+        CategoryPageBase computersCategoryPage = homePage.getNavigationBar().clickCategory(Category.COMPUTERS);
         Assert.assertTrue(computersCategoryPage.isPageOpened("Computers"), "Computer category page is not opened");
         CategoryPageBase desktopsCategoryPage = computersCategoryPage.clickSubcategory(SubCategory.DESKTOP);
         Assert.assertTrue(desktopsCategoryPage.isPageOpened("Desktops"), "Desktops category page is not opened");
@@ -90,7 +90,7 @@ public class NopcommerceTest extends AbstractNopcommerceTest {
         HomePageBase homePage = initPage(getDriver(), HomePageBase.class);
         homePage.open();
         Assert.assertTrue(homePage.isPageOpened(), "Nopcommerce home page is not opened");
-        CategoryPageBase computersCategoryPage = homePage.getNavigation().clickCategory(Category.COMPUTERS);
+        CategoryPageBase computersCategoryPage = homePage.getNavigationBar().clickCategory(Category.COMPUTERS);
         Assert.assertTrue(computersCategoryPage.isPageOpened("Computers"), "Computer category page is not opened");
         CategoryPageBase desktopsCategoryPage = computersCategoryPage.clickSubcategory(SubCategory.DESKTOP);
         Assert.assertTrue(desktopsCategoryPage.isPageOpened("Desktops"), "Desktops category page is not opened");

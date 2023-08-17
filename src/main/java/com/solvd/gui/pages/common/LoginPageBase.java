@@ -1,16 +1,32 @@
 package com.solvd.gui.pages.common;
 
+import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 import org.openqa.selenium.WebDriver;
 
-public abstract class LoginPageBase extends AbstractNopcommercePage {
+public class LoginPageBase extends AbstractNopcommercePage {
+
+    private ExtendedWebElement pageTitle;
+
+    private ExtendedWebElement emailTextField;
+
+    private ExtendedWebElement passwordTextField;
+
+    private ExtendedWebElement loginButton;
 
     public LoginPageBase(WebDriver driver) {
         super(driver);
     }
 
-    public abstract void typeEmail(String email);
+    public void typeEmail(String email) {
+        emailTextField.type(email);
+    }
 
-    public abstract void typePassword(String password);
+    public void typePassword(String password) {
+        passwordTextField.type(password);
+    }
 
-    public abstract HomePageBase clickLoginButton();
+    public HomePageBase clickLoginButton() {
+        loginButton.click();
+        return initPage(HomePageBase.class, getDriver());
+    }
 }

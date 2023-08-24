@@ -1,8 +1,9 @@
 package com.solvd.gui.pages.android;
 
-import com.solvd.gui.components.navigation.NavigationBar;
+import com.solvd.gui.components.navigation.MobileNavigationBar;
 import com.solvd.gui.components.navigation.NavigationBarBase;
 import com.solvd.gui.pages.common.RegisterPageBase;
+import com.solvd.gui_components.utils.override_field.FieldUtils;
 import com.zebrunner.carina.utils.factory.DeviceType;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 import com.zebrunner.carina.webdriver.decorator.PageOpeningStrategy;
@@ -13,7 +14,7 @@ import org.openqa.selenium.support.FindBy;
 public class RegisterPage extends RegisterPageBase {
 
     @FindBy(css = ".master-wrapper-page")
-    private NavigationBar navigation;
+    private MobileNavigationBar navigationBar;
 
     @FindBy(xpath = "//*[@class = 'page-title']/h1[text() = 'Register']")
     private ExtendedWebElement registerPageTitle;
@@ -52,60 +53,10 @@ public class RegisterPage extends RegisterPageBase {
         super(driver);
         setPageOpeningStrategy(PageOpeningStrategy.BY_ELEMENT);
         setUiLoadedMarker(registerPageTitle);
+        FieldUtils.overrideFields(this);
     }
 
-    @Override
-    public NavigationBarBase getNavigation() {
-        return navigation;
-    }
-
-    @Override
-    public void typeFirstName(String firstName) {
-        firstNameTextField.type(firstName);
-    }
-
-    @Override
-    public void typeLastName(String lastName) {
-        lastNameTextField.type(lastName);
-    }
-
-    @Override
-    public void typeEmail(String email) {
-        emailTextField.type(email);
-    }
-
-    @Override
-    public void typePassword(String password) {
-        passwordTextField.type(password);
-    }
-
-    @Override
-    public void typeConfirmPassword(String password) {
-        confirmPasswordTextField.type(password);
-    }
-
-    @Override
-    public void selectDay(int day) {
-        daySelectBox.select(String.valueOf(day));
-    }
-
-    @Override
-    public void selectMonth(String month) {
-        monthSelectBox.select(month);
-    }
-
-    @Override
-    public void selectYear(int year) {
-        yearSelectBox.select(String.valueOf(year));
-    }
-
-    @Override
-    public void clickRegisterBtn() {
-        registerButton.click();
-    }
-
-    @Override
-    public boolean isSuccessfullyRegisterNotificationPreset() {
-        return successfullyRegisterNotification.isElementPresent();
+    public NavigationBarBase getNavigationBar() {
+        return navigationBar;
     }
 }

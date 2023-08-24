@@ -3,6 +3,7 @@ package com.solvd.gui.components.navigation;
 import com.solvd.gui.pages.common.*;
 import com.solvd.gui.pages.desktop.*;
 import com.solvd.gui_components.enums.Category;
+import com.solvd.gui_components.utils.override_field.FieldUtils;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
@@ -36,25 +37,7 @@ public class MobileNavigationBar extends NavigationBarBase {
 
     public MobileNavigationBar(WebDriver driver, SearchContext searchContext) {
         super(driver, searchContext);
-    }
-
-    @Override
-    public RegisterPageBase clickRegisterLink() {
-        registerLink.click();
-        return new RegisterPage(getDriver());
-    }
-
-    @Override
-    public LoginPageBase clickLoginLink() {
-        loginLink.click();
-        return new LoginPage(getDriver());
-    }
-
-    @Override
-    public SearchResultsPageBase search(String productName) {
-        searchTextField.type(productName);
-        searchButton.click();
-        return new SearchResultsPage(getDriver());
+        FieldUtils.overrideFields(this);
     }
 
     @Override
@@ -62,16 +45,5 @@ public class MobileNavigationBar extends NavigationBarBase {
         categoriesToggleBox.click();
         categoryLink.format(category.getCategory()).click();
         return new CategoryPage(getDriver());
-    }
-
-    @Override
-    public HomePageBase clickHeaderLogo() {
-        headerLogo.click();
-        return new HomePage(getDriver());
-    }
-
-    @Override
-    public boolean isMyAccountLinkPresent() {
-        return myAccountLink.isElementPresent();
     }
 }

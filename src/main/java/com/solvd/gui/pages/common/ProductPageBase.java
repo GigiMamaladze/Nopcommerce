@@ -3,21 +3,46 @@ package com.solvd.gui.pages.common;
 import com.solvd.gui_components.enums.computerspec.Hdd;
 import com.solvd.gui_components.enums.computerspec.Processor;
 import com.solvd.gui_components.enums.computerspec.Ram;
+import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 import org.openqa.selenium.WebDriver;
 
 public abstract class ProductPageBase extends AbstractNopcommercePage {
+
+    private ExtendedWebElement product;
+
+    private ExtendedWebElement addToCartButton;
+
+    private ExtendedWebElement successfullyMessage;
+
+    private ExtendedWebElement shoppingCartLink;
+
+    private ExtendedWebElement processorSelectBox;
+
+    private ExtendedWebElement ramSelectBox;
+
+    private ExtendedWebElement hddItem;
 
     public ProductPageBase(WebDriver driver) {
         super(driver);
     }
 
-    public abstract boolean isProductPageOpened(String product);
+    public boolean isProductPageOpened(String productName) {
+        return product.format(productName).isElementPresent();
+    }
 
-    public abstract void selectProcessor(Processor processor);
+    public void selectProcessor(Processor processor) {
+        processorSelectBox.select(processor.getProcessor());
+    }
 
-    public abstract void selectRam(Ram ram);
+    public void selectRam(Ram ram) {
+        ramSelectBox.select(ram.getRam());
+    }
 
-    public abstract void selectHDD(Hdd hdd);
+    public void selectHDD(Hdd hdd) {
+        hddItem.format(hdd.getHdd()).click();
+    }
 
-    public abstract void clickAddToCartButton();
+    public void clickAddToCartButton() {
+        addToCartButton.click();
+    }
 }

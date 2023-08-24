@@ -1,7 +1,7 @@
 package com.solvd.gui.pages.android;
 
-import com.solvd.gui.pages.common.HomePageBase;
 import com.solvd.gui.pages.common.LoginPageBase;
+import com.solvd.gui_components.utils.override_field.FieldUtils;
 import com.zebrunner.carina.utils.factory.DeviceType;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 import com.zebrunner.carina.webdriver.decorator.PageOpeningStrategy;
@@ -27,21 +27,6 @@ public class LoginPage extends LoginPageBase {
         super(driver);
         setPageOpeningStrategy(PageOpeningStrategy.BY_ELEMENT);
         setUiLoadedMarker(pageTitle);
-    }
-
-    @Override
-    public void typeEmail(String email) {
-        emailTextField.type(email);
-    }
-
-    @Override
-    public void typePassword(String password) {
-        passwordTextField.type(password);
-    }
-
-    @Override
-    public HomePageBase clickLoginButton() {
-        loginButton.click();
-        return initPage(HomePageBase.class, getDriver());
+        FieldUtils.overrideFields(this);
     }
 }

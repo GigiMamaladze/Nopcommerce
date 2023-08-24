@@ -3,7 +3,7 @@ package com.solvd.gui.pages.common;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 import org.openqa.selenium.WebDriver;
 
-public class LoginPageBase extends AbstractNopcommercePage {
+public abstract class LoginPageBase extends AbstractNopcommercePage {
 
     private ExtendedWebElement pageTitle;
 

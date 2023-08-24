@@ -3,6 +3,7 @@ package com.solvd.gui.pages.android;
 import com.solvd.gui.components.navigation.MobileNavigationBar;
 import com.solvd.gui.components.navigation.NavigationBarBase;
 import com.solvd.gui.pages.common.HomePageBase;
+import com.solvd.gui_components.utils.override_field.FieldUtils;
 import com.zebrunner.carina.utils.factory.DeviceType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
@@ -15,9 +16,9 @@ public class HomePage extends HomePageBase {
 
     public HomePage(WebDriver driver) {
         super(driver);
+        FieldUtils.overrideFields(this);
     }
 
-    @Override
     public NavigationBarBase getNavigationBar() {
         return navigationBar;
     }

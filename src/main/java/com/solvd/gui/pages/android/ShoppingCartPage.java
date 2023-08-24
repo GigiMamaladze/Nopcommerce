@@ -1,6 +1,7 @@
 package com.solvd.gui.pages.android;
 
 import com.solvd.gui.pages.common.ShoppingCartPageBase;
+import com.solvd.gui_components.utils.override_field.FieldUtils;
 import com.zebrunner.carina.utils.factory.DeviceType;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 import com.zebrunner.carina.webdriver.decorator.PageOpeningStrategy;
@@ -22,10 +23,6 @@ public class ShoppingCartPage extends ShoppingCartPageBase {
         super(driver);
         setPageOpeningStrategy(PageOpeningStrategy.BY_ELEMENT);
         setUiLoadedMarker(pageTitle);
-    }
-
-    @Override
-    public boolean isProductPresent(String productName) {
-        return product.format(productName).isElementPresent();
+        FieldUtils.overrideFields(this);
     }
 }

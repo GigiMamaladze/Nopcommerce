@@ -1,9 +1,7 @@
 package com.solvd.gui.pages.android;
 
 import com.solvd.gui.pages.common.ProductPageBase;
-import com.solvd.gui_components.enums.computerspec.Hdd;
-import com.solvd.gui_components.enums.computerspec.Processor;
-import com.solvd.gui_components.enums.computerspec.Ram;
+import com.solvd.gui_components.utils.override_field.FieldUtils;
 import com.zebrunner.carina.utils.factory.DeviceType;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 import org.openqa.selenium.WebDriver;
@@ -36,30 +34,6 @@ public class ProductPage extends ProductPageBase {
 
     public ProductPage(WebDriver driver) {
         super(driver);
-    }
-
-    @Override
-    public boolean isProductPageOpened(String productName) {
-        return product.format(productName).isElementPresent();
-    }
-
-    @Override
-    public void selectProcessor(Processor processor) {
-        processorSelectBox.select(processor.getProcessor());
-    }
-
-    @Override
-    public void selectRam(Ram ram) {
-        ramSelectBox.select(ram.getRam());
-    }
-
-    @Override
-    public void selectHDD(Hdd hdd) {
-        hddItem.format(hdd.getHdd()).click();
-    }
-
-    @Override
-    public void clickAddToCartButton() {
-        addToCartButton.click();
+        FieldUtils.overrideFields(this);
     }
 }

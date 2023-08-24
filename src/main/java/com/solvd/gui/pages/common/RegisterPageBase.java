@@ -1,33 +1,82 @@
 package com.solvd.gui.pages.common;
 
+import com.solvd.gui.components.navigation.NavigationBar;
 import com.solvd.gui.components.navigation.NavigationBarBase;
+import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.FindBy;
 
 public abstract class RegisterPageBase extends AbstractNopcommercePage {
+
+    private NavigationBar navigation;
+
+    private ExtendedWebElement registerPageTitle;
+
+    private ExtendedWebElement firstNameTextField;
+
+    private ExtendedWebElement lastNameTextField;
+
+    private ExtendedWebElement emailTextField;
+
+    private ExtendedWebElement passwordTextField;
+
+    private ExtendedWebElement confirmPasswordTextField;
+
+    private ExtendedWebElement daySelectBox;
+
+    private ExtendedWebElement monthSelectBox;
+
+    private ExtendedWebElement yearSelectBox;
+
+    private ExtendedWebElement registerButton;
+
+    private ExtendedWebElement successfullyRegisterNotification;
 
     public RegisterPageBase(WebDriver driver) {
         super(driver);
     }
 
-    public abstract NavigationBarBase getNavigation();
+    public NavigationBarBase getNavigation() {
+        return navigation;
+    }
 
-    public abstract void typeFirstName(String firstName);
+    public void typeFirstName(String firstName) {
+        firstNameTextField.type(firstName);
+    }
 
-    public abstract void typeLastName(String lastName);
+    public void typeLastName(String lastName) {
+        lastNameTextField.type(lastName);
+    }
 
-    public abstract void typeEmail(String email);
+    public void typeEmail(String email) {
+        emailTextField.type(email);
+    }
 
-    public abstract void typePassword(String password);
+    public void typePassword(String password) {
+        passwordTextField.type(password);
+    }
 
-    public abstract void typeConfirmPassword(String password);
+    public void typeConfirmPassword(String password) {
+        confirmPasswordTextField.type(password);
+    }
 
-    public abstract void selectDay(int day);
+    public void selectDay(int day) {
+        daySelectBox.select(String.valueOf(day));
+    }
 
-    public abstract void selectMonth(String month);
+    public void selectMonth(String month) {
+        monthSelectBox.select(month);
+    }
 
-    public abstract void selectYear(int year);
+    public void selectYear(int year) {
+        yearSelectBox.select(String.valueOf(year));
+    }
 
-    public abstract void clickRegisterBtn();
+    public void clickRegisterBtn() {
+        registerButton.click();
+    }
 
-    public abstract boolean isSuccessfullyRegisterNotificationPreset();
+    public boolean isSuccessfullyRegisterNotificationPreset() {
+        return successfullyRegisterNotification.isElementPresent();
+    }
 }

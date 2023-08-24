@@ -1,8 +1,7 @@
 package com.solvd.gui.pages.desktop;
 
-import com.solvd.gui.pages.common.HomePageBase;
 import com.solvd.gui.pages.common.LoginPageBase;
-import com.solvd.gui_components.utils.FieldOverrideUtility;
+import com.solvd.gui_components.utils.override_field.FieldUtils;
 import com.zebrunner.carina.utils.factory.DeviceType;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 import com.zebrunner.carina.webdriver.decorator.PageOpeningStrategy;
@@ -31,6 +30,6 @@ public class LoginPage extends LoginPageBase {
         super(driver);
         setPageOpeningStrategy(PageOpeningStrategy.BY_ELEMENT);
         setUiLoadedMarker(pageTitle);
-        FieldOverrideUtility.overrideField(this, LoginPageBase.class);
+        FieldUtils.overrideFields(this);
     }
 }

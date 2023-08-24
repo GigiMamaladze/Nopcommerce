@@ -1,6 +1,7 @@
 package com.solvd.gui.pages.android;
 
 import com.solvd.gui.pages.common.SearchResultsPageBase;
+import com.solvd.gui_components.utils.override_field.FieldUtils;
 import com.zebrunner.carina.utils.factory.DeviceType;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 import org.openqa.selenium.WebDriver;
@@ -14,10 +15,6 @@ public class SearchResultsPage extends SearchResultsPageBase {
 
     public SearchResultsPage(WebDriver driver) {
         super(driver);
-    }
-
-    @Override
-    public boolean isProductPresent(String productName) {
-        return product.format(productName).isElementPresent();
+        FieldUtils.overrideFields(this);
     }
 }

@@ -3,6 +3,7 @@ package com.solvd.gui.pages.android;
 import com.solvd.gui.pages.common.CategoryPageBase;
 import com.solvd.gui.pages.common.ProductPageBase;
 import com.solvd.gui_components.enums.SubCategory;
+import com.solvd.gui_components.utils.override_field.FieldUtils;
 import com.zebrunner.carina.utils.factory.DeviceType;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 import org.openqa.selenium.WebDriver;
@@ -22,23 +23,6 @@ public class CategoryPage extends CategoryPageBase {
 
     public CategoryPage(WebDriver driver) {
         super(driver);
-    }
-
-    @Override
-    public CategoryPageBase clickSubcategory(SubCategory subCategory) {
-
-        subCategoryLink.format(subCategory.getSubCategory()).click();
-        return initPage(CategoryPageBase.class, getDriver());
-    }
-
-    @Override
-    public boolean isPageOpened(String pageTitle) {
-        return this.pageTitle.format(pageTitle).isElementPresent();
-    }
-
-    @Override
-    public ProductPageBase clickProduct(String product) {
-        productLink.format(product).click();
-        return initPage(ProductPageBase.class, getDriver());
+        FieldUtils.overrideFields(this);
     }
 }

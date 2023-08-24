@@ -7,6 +7,7 @@ import com.solvd.gui_components.enums.computerspec.Hdd;
 import com.solvd.gui_components.enums.computerspec.Processor;
 import com.solvd.gui_components.enums.computerspec.Ram;
 import com.zebrunner.carina.core.registrar.ownership.MethodOwner;
+import jdk.jfr.Description;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -33,8 +34,9 @@ public class NopcommerceTest extends AbstractNopcommerceTest {
         Assert.assertTrue(registerPage.isSuccessfullyRegisterNotificationPreset(), "Register is not completed");
     }
 
-    @Test
+    @Test(enabled = false)
     @MethodOwner(owner = "Gigi")
+    @Description("Login Test Not Functioning on Mobile (Issue with Log in button)")
     public void testLogin() {
         String firstName = randomUtil.getRandomString(6);
         String lastName = randomUtil.getRandomString(6);

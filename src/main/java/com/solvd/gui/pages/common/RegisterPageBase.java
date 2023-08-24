@@ -4,7 +4,6 @@ import com.solvd.gui.components.navigation.NavigationBar;
 import com.solvd.gui.components.navigation.NavigationBarBase;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.FindBy;
 
 public abstract class RegisterPageBase extends AbstractNopcommercePage {
 

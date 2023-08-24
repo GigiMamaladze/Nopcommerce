@@ -1,7 +1,6 @@
 package com.solvd.gui.pages.desktop;
 
 import com.solvd.gui.components.navigation.NavigationBar;
-import com.solvd.gui.components.navigation.NavigationBarBase;
 import com.solvd.gui.pages.common.HomePageBase;
 import com.solvd.gui_components.utils.override_field.FieldUtils;
 import com.zebrunner.carina.utils.factory.DeviceType;

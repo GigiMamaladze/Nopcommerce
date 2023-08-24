@@ -1,7 +1,7 @@
 package com.solvd.gui.components.navigation;
 
-import com.solvd.gui.pages.common.*;
-import com.solvd.gui.pages.desktop.*;
+import com.solvd.gui.pages.common.CategoryPageBase;
+import com.solvd.gui.pages.desktop.CategoryPage;
 import com.solvd.gui_components.enums.Category;
 import com.solvd.gui_components.utils.override_field.FieldUtils;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;

@@ -1,8 +1,6 @@
 package com.solvd.gui.pages.android;
 
 import com.solvd.gui.pages.common.CategoryPageBase;
-import com.solvd.gui.pages.common.ProductPageBase;
-import com.solvd.gui_components.enums.SubCategory;
 import com.solvd.gui_components.utils.override_field.FieldUtils;
 import com.zebrunner.carina.utils.factory.DeviceType;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
